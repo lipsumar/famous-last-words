@@ -37,4 +37,4 @@ function outFilePath(id){
   return OUT_PATH + id + '.png'
 }
 
-app.listen(3000, () => console.log('Listening on http://localhost:3000'))
+app.listen(3002, () => console.log('Listening on http://localhost:3002'))
