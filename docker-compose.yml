@@ -1,0 +1,16 @@
+version: "3"
+
+networks:
+  proxy:
+    external: true
+
+services:
+  app:
+    build: .
+    labels:
+      - traefik.backend=flw
+      - traefik.frontend.rule=Host:famous-last-words.lipsumar.io
+      - traefik.docker.network=proxy
+      - traefik.port=3000
+    networks:
+      - proxy
