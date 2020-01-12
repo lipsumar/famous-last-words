@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer');
 const uniqid = require('uniqid')
 
 const OUT_PATH = 'out/'
+const PORT = 3005
 
 
 const app = express()
@@ -24,7 +25,7 @@ async function screenshot(text, id) {
   const page = await browser.newPage();
 
   console.log('Opening page...')
-  await page.goto(`http://localhost:3000?text=${text}`);
+  await page.goto(`http://localhost:${PORT}?text=${text}`);
 
   console.log('Screenshot...')
   await page.screenshot({ path: 'public/' + outFilePath(id) });
@@ -37,4 +38,4 @@ function outFilePath(id){
   return OUT_PATH + id + '.png'
 }
 
-app.listen(3002, () => console.log('Listening on http://localhost:3002'))
+app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))

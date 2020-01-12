@@ -9,8 +9,9 @@ services:
     build: .
     labels:
       - traefik.backend=flw
-      - traefik.frontend.rule=Host:famous-last-words.lipsumar.io
+      - traefik.frontend.rule=Host:flw.lipsumar.io
       - traefik.docker.network=proxy
-      - traefik.port=3002
+      - traefik.port=3005
+      - traefik.enable=true
     networks:
       - proxy
